@@ -1,0 +1,66 @@
+{
+  "name": "@ca-stackforgestudio/ctxbridge",
+  "version": "0.1.0",
+  "description": "A cross-agent memory layer. One shared memory that bridges Claude Code, Codex CLI, Gemini CLI, Cursor and any MCP-aware tool.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Spotted <Tech@tryspotted.com>",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "memory",
+    "ai",
+    "agents",
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "cursor",
+    "context",
+    "llm",
+    "cli"
+  ],
+  "homepage": "https://github.com/CHANGE-ME/ctxbridge#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CHANGE-ME/ctxbridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CHANGE-ME/ctxbridge/issues"
+  },
+  "bin": {
+    "ctxbridge": "dist/cli/index.js",
+    "ctxbridge-mcp": "dist/mcp/server.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev:mcp": "tsx src/mcp/server.ts",
+    "dev:cli": "tsx src/cli/index.ts",
+    "start:mcp": "node dist/mcp/server.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.4.0",
+    "better-sqlite3": "^11.3.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^22.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
